@@ -1,29 +1,22 @@
 import store from './store'
-import * as actions from './actionTypes'
-// it can also be done as => import { BUG_ADDED, BUG_REMOVED } from './actionTypes'
-// - when there are not too many actions
+import { bugAdded } from './actions'
 
-// The subscribe() returns as fn() to unsubscribe, from the store
-// unsubscribe() is important, like in cases when the user navigates to a different page, and the UI will not-
-//- be used there, so the subscription won't be need over there, as the subscriptions can create memory leaks. 
-// If the current component will not be visible, the store can be unsubscribed to prevent memory leaks
+/* The subscribe() returns as fn() to unsubscribe, from the store
+ unsubscribe() is important, like in cases when the user navigates to a different page, and the UI will not-
+- be used there, so the subscription won't be need over there, as the subscriptions can create memory leaks. 
+ If the current component will not be visible, the store can be unsubscribed to prevent memory leaks */
 const unSubscribe = store.subscribe(()=>{
     console.log("Store Changed!!!", store.getState());
 });
 
-store.dispatch({
-    type: actions.BUG_ADDED,
-    payload:{
-        description: 'Bug1'
-    }
-});
+store.dispatch(bugAdded("Bug 1"));
+/* store.dispatch("Bug 1");
 
-store.dispatch({
+ store.dispatch({
     type: actions.BUG_REMOVED,
-    payload:{
-        id: 1
+   payload:{         id: 1
     }
-});
+}); */
 
 
 console.log(store.getState());
@@ -34,5 +27,4 @@ console.log(store.getState());
         -by the store's reducer.
     4) replaceReducer(nextReducer) - To replace the reducer(). It is an advanced API and might be needed if the 
         - app implements code splitting, and if some of the reducers are needed to be loaded dynamically
-
 */
