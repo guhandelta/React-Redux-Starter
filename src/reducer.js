@@ -18,7 +18,6 @@ function reducer(state=[], action){ // Initial state [], to prevent it being set
         default:
             return state;
     }
-    }
     
 }
 
