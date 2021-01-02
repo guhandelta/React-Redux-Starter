@@ -1,5 +1,5 @@
 import store from './store'
-import { bugAdded } from './actions'
+import { bugAdded, bugResolved } from './actions'
 
 /* The subscribe() returns as fn() to unsubscribe, from the store
  unsubscribe() is important, like in cases when the user navigates to a different page, and the UI will not-
@@ -10,6 +10,7 @@ const unSubscribe = store.subscribe(()=>{
 });
 
 store.dispatch(bugAdded("Bug 1"));
+store.dispatch(bugResolved(1));
 /* store.dispatch("Bug 1");
 
  store.dispatch({
