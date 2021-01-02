@@ -1,19 +1,29 @@
 import store from './store'
+import * as actions from './actionTypes'
+// it can also be done as => import { BUG_ADDED, BUG_REMOVED } from './actionTypes'
+// - when there are not too many actions
 
+// The subscribe() returns as fn() to unsubscribe, from the store
+// unsubscribe() is important, like in cases when the user navigates to a different page, and the UI will not-
+//- be used there, so the subscription won't be need over there, as the subscriptions can create memory leaks. 
+// If the current component will not be visible, the store can be unsubscribed to prevent memory leaks
+const unSubscribe = store.subscribe(()=>{
+    console.log("Store Changed!!!", store.getState());
+});
 
 store.dispatch({
-    type: 'bugAdded',
+    type: actions.BUG_ADDED,
     payload:{
         description: 'Bug1'
     }
-})
+});
 
 store.dispatch({
-    type: 'bugRemoved',
+    type: actions.BUG_REMOVED,
     payload:{
         id: 1
     }
-})
+});
 
 
 console.log(store.getState());

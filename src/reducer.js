@@ -1,8 +1,12 @@
+// import { BUG_ADDED, BUG_REMOVED } from './actionTypes'
+// or
+import * as actions from './actionTypes'
+
 let lastId = 0;
 
 export default function reducer(state=[], action){ // Initial state [], to prevent it being set to undefined
     switch(action.type){
-        case "bugAddes":
+        case actions.BUG_ADDED:
             return[
                 // Take a copy of the state
                 ...state,
@@ -13,7 +17,7 @@ export default function reducer(state=[], action){ // Initial state [], to preve
                     resolved: false
                 }
             ];
-        case "bugRemoved":
+        case actions.BUG_REMOVED:
             return state.filter(bug => bug.id !== action.payload.id);
         default:
             return state;
