@@ -1,0 +1,17 @@
+{
+  "name": "react-redux-app",
+  "version": "1.0.0",
+  "description": "A simple React Redux exploratory Project",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.config.js"
+  },
+  "keywords": [],
+  "author": "Guhaprasaanth Nandagopal",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "4.41.6",
+    "webpack-cli": "3.3.11",
+    "webpack-dev-server": "3.10.3"
+  }
+}
