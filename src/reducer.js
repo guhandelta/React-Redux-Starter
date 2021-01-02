@@ -1,6 +1,6 @@
 let lastId = 0;
 
-function reducer(state=[], action){ // Initial state [], to prevent it being set to undefined
+export default function reducer(state=[], action){ // Initial state [], to prevent it being set to undefined
     switch(action.type){
         case "bugAddes":
             return[
